@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/internal/operators';
+import { catchError } from 'rxjs/operators';
 import {
   HttpClient,
   HttpHeaders,
@@ -9,7 +9,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'YOUR_HOSTED_API_URL_HERE/';
+const apiUrl = 'https://my-flix-fukui-fbfc1615b505.herokuapp.com/';
 @Injectable({
   providedIn: 'root',
 })
@@ -43,7 +43,7 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   // Non-typed response extraction
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Object): any {
     const body = res;
     return body || {};
   }
