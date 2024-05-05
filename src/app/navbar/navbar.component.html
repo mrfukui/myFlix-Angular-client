@@ -1,0 +1,27 @@
+<mat-toolbar>
+  <button mat-button (click)="openMovieCard()"><h1>Fukui's Flixes</h1></button>
+  <button
+    class="nav-icon-button"
+    mat-icon-button
+    (click)="openMovieCard()"
+    aria-label="icon-button for logout"
+  >
+    <mat-icon>movie</mat-icon>
+  </button>
+  <button
+    class="nav-icon-button"
+    mat-icon-button
+    (click)="openProfile()"
+    aria-label="icon-button for profile"
+  >
+    <mat-icon>person_outline</mat-icon>
+  </button>
+  <button
+    class="nav-icon-button"
+    mat-icon-button
+    (click)="logoutUser()"
+    aria-label="icon-button for logout"
+  >
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
