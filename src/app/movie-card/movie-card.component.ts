@@ -103,6 +103,7 @@ export class MovieCardComponent implements OnInit {
       this.fetchApiData.addFavoriteMovie(movieId).subscribe(
         (response) => {
           this.favoritemovies.push(movieId);
+          this.updateUserFavoritesLocally();
           this.snackBar.open('Added to Favorites!', 'OK', {
             duration: 2000,
           });
@@ -117,6 +118,7 @@ export class MovieCardComponent implements OnInit {
       this.fetchApiData.deleteFavoriteMovie(movieId).subscribe(
         (response) => {
           this.favoritemovies.splice(index, 1);
+          this.updateUserFavoritesLocally();
           this.snackBar.open('Removed from Favorites!', 'OK', {
             duration: 2000,
           });
@@ -129,17 +131,8 @@ export class MovieCardComponent implements OnInit {
     }
   }
 
-  updateUserFavorites(): void {
-    this.fetchApiData.editUser(this.userData).subscribe(
-      (response) => {
-        console.log('User favorites updated:', response);
-        // Update the user data after receiving the updated response
-        this.user = response;
-        this.userData.favoritemovies = response.favoritemovies;
-      },
-      (error) => {
-        console.error('Error updating user favorites:', error);
-      }
-    );
+  updateUserFavoritesLocally(): void {
+    this.user.favoritemovies = this.favoritemovies;
+    localStorage.setItem('user', JSON.stringify(this.user));
   }
 }

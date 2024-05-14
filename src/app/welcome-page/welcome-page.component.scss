@@ -1,0 +1,22 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.main-page-title {
+  margin-bottom: 1em;
+  font-size: 3em;
+  color: white;
+}
+
+.main-page button {
+  margin-bottom: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+  font-size: 1.5em;
+}

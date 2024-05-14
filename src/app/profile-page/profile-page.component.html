@@ -1,22 +1,30 @@
 <app-navbar></app-navbar>
 <div>
-  <mat-card>
+  <mat-card class="profile-info">
     <mat-card-header>
       <mat-card-title>{{ userData.username }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <p>Email: {{ userData.email }}</p>
-      <p>Birthday: {{ userData.birthday | date : "longDate" }}</p>
+      <div class="email-container">
+        <p class="email-content">Email:</p>
+        <p class="email-content">{{ userData.email }}</p>
+      </div>
+      <div class="birthday-container">
+        <p class="birthday-content">Birthday:</p>
+        <p class="birthday-content">
+          {{ userData.birthday | date : "longDate" }}
+        </p>
+      </div>
     </mat-card-content>
   </mat-card>
-  <mat-card>
+  <mat-card class="update-profile-info">
     <mat-card-header>
       <mat-card-title> Update Profile </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form>
-        <label>Username:</label>
-        <mat-form-field>
+      <form class="form-container">
+        <label class="form-content">Username:</label>
+        <mat-form-field class="form-content">
           <input
             matInput
             [(ngModel)]="userData.username"
@@ -26,8 +34,8 @@
             required
           />
         </mat-form-field>
-        <label>Email:</label>
-        <mat-form-field>
+        <label class="form-content">Email:</label>
+        <mat-form-field class="form-content">
           <input
             matInput
             [(ngModel)]="userData.email"
@@ -37,8 +45,8 @@
             required
           />
         </mat-form-field>
-        <label>Birthday:</label>
-        <mat-form-field>
+        <label class="form-content">Birthday:</label>
+        <mat-form-field class="form-content">
           <input
             matInput
             [(ngModel)]="userData.birthday"
@@ -65,21 +73,27 @@
 </div>
 <div>
   <div>
-    <h2>Favorite Movies List</h2>
+    <h2 class="fav-title">Favorite Movies List</h2>
     <div *ngIf="favoritemovies.length === 0" style="font-size: 18px">
       <p>You have no favorite movies.</p>
     </div>
   </div>
-  <div style="display: flex">
+  <div class="favorites-container">
     <mat-card *ngFor="let movie of favoritemovies" class="movie-card-fav">
-      <img src="{{ movie.imageurl }}" alt="{{ movie.title }}" class="favorite-movie-image"/>
+      <div class="content-container">
+        <img
+          src="{{ movie.imageurl }}"
+          alt="{{ movie.title }}"
+          class="favorite-movie-image"
+        />
+      </div>
       <mat-card-header>
         <mat-card-title>{{ movie.title }}</mat-card-title>
         <mat-card-subtitle *ngIf="movie?.director"
           >Directed by: {{ movie.director.name }}</mat-card-subtitle
         >
       </mat-card-header>
-      <mat-card-actions>
+      <mat-card-actions class="fav-button-container">
         <button
           mat-button
           color="primary"
