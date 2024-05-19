@@ -4,6 +4,10 @@
 
 This is a movie app built with Angular and using an existing API and documentation using typedoc.
 
+## Live Website:
+
+Check out the live website [here!](https://mrfukui.github.io/myFlix-Angular-client/)
+
 ## Features
 
 - Displays a welcome view where users can either log in or register as a new user
