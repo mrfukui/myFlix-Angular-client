@@ -16,17 +16,31 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./user-registration-form.component.scss'],
 })
 export class UserRegistrationFormComponent implements OnInit {
+  /**
+   * User data input model for registration.
+   */
   @Input() userData = { username: '', password: '', email: '', birthday: '' };
 
+  /**
+   * Creates an instance of UserRegistrationFormComponent.
+   * @param fetchApiData - Service for API calls
+   * @param dialogRef - Reference to the dialog opened
+   * @param snackBar - Service for displaying notifications
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
     public snackBar: MatSnackBar
   ) {}
 
+  /**
+   * Lifecycle hook that is called after data-bound properties of a directive are initialized.
+   */
   ngOnInit(): void {}
 
-  // This is the function responsible for sending the form inputs to the backend
+  /**
+   * Sends the form inputs to the backend to register a new user.
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(
       (result) => {

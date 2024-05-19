@@ -7,6 +7,10 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrl: './director-info.component.scss',
 })
 export class DirectorInfoComponent implements OnInit {
+  /**
+   * Creates an instance of DirectorInfoComponent.
+   * @param data - Data passed into the dialog
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
@@ -17,5 +21,8 @@ export class DirectorInfoComponent implements OnInit {
     }
   ) {}
 
+  /**
+   * Lifecycle hook that is called after data-bound properties of a directive are initialized.
+   */
   ngOnInit(): void {}
 }

@@ -8,18 +8,35 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent implements OnInit {
+  /**
+   * Creates an instance of NavbarComponent.
+   * @param router - Router for navigation
+   * @param snackBar - Service for displaying notifications
+   */
   constructor(public router: Router, public snackBar: MatSnackBar) {}
 
+  /**
+   * Lifecycle hook that is called after data-bound properties of a directive are initialized.
+   */
   ngOnInit(): void {}
 
+  /**
+   * Navigates to the movies page.
+   */
   public openMovieCard(): void {
     this.router.navigate(['movies']);
   }
 
+  /**
+   * Navigates to the profile page.
+   */
   public openProfile(): void {
     this.router.navigate(['profile']);
   }
 
+  /**
+   * Logs out the user.
+   */
   public logoutUser(): void {
     localStorage.setItem('user', '');
     localStorage.setItem('token', '');

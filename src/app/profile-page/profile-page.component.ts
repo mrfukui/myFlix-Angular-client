@@ -14,6 +14,9 @@ import { GenreInfoComponent } from '../genre-info/genre-info.component';
   styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent implements OnInit {
+  /**
+   * User data input model for profile page.
+   */
   @Input() userData = {
     _id: '',
     username: '',
@@ -26,6 +29,13 @@ export class ProfilePageComponent implements OnInit {
   movies: any[] = [];
   favoritemovies: any[] = [];
 
+  /**
+   * Creates an instance of ProfilePageComponent.
+   * @param fetchApiData - Service for API calls
+   * @param dialog - Service for opening dialog components
+   * @param snackBar - Service for displaying notifications
+   * @param router - Router for navigation
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -33,11 +43,17 @@ export class ProfilePageComponent implements OnInit {
     private router: Router
   ) {}
 
+  /**
+   * Lifecycle hook that is called after data-bound properties of a directive are initialized.
+   */
   ngOnInit(): void {
     this.getProfile();
     this.getMovies();
   }
 
+  /**
+   * Retrieves the user profile information.
+   */
   getProfile(): void {
     this.user = this.fetchApiData.getUser();
     this.userData._id = this.user._id;
@@ -52,6 +68,9 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  /**
+   * Updates user information.
+   */
   updateUser(): void {
     this.fetchApiData.editUser(this.userData).subscribe(
       (result) => {
@@ -70,6 +89,9 @@ export class ProfilePageComponent implements OnInit {
     );
   }
 
+  /**
+   * Retrieves all movies from the database.
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -78,12 +100,22 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  /**
+   * Retrieves user favorites.
+   */
   getUserFavorites(): void {
     this.user = this.fetchApiData.getUser();
     this.userData.favoritemovies = this.user.favoritemovies;
     this.favoritemovies = this.user.favoritemovies;
   }
 
+  /**
+   * Opens a dialog displaying director information.
+   * @param name - Director's name
+   * @param bio - Director's biography
+   * @param birthyear - Director's birth year
+   * @param deathyear - Director's death year (if applicable)
+   */
   directorDialog(
     name: string,
     bio: string,
@@ -101,6 +133,11 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens a dialog displaying genre information.
+   * @param Name - Genre name
+   * @param Description - Genre description
+   */
   genreDialog(Name: string, Description: string): void {
     this.dialog.open(GenreInfoComponent, {
       data: {
@@ -111,6 +148,10 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens a dialog displaying movie description.
+   * @param description - Movie description
+   */
   movieDescriptionDialog(description: string): void {
     this.dialog.open(MovieDescriptionComponent, {
       data: {

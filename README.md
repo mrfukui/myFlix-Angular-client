@@ -1,27 +1,37 @@
-# MyFlixAngularClient
+# myFlix-Angular-client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+## Description
 
-## Development server
+This is a movie app built with Angular and using an existing API and documentation using typedoc.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Displays a welcome view where users can either log in or register as a new user
+- Once logged in, users can view all movies
+- Each movie will provide a button for a director view, a button for a genre view, and a button to add or remove a movie to a favorites list
+- Users will be provided a profile view where they can edit their user information or view their favorite movies list
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies Used:
 
-## Build
+- HTML5
+- TypeScript
+- Angular
+- Angular Material
+- RxJS
+- TypeDoc
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Get Started:
 
-## Running unit tests
+### 1. Clone the repository with the command "git clone https://github.com/mrfukui/myFlix-Angular-client.git" in your chosen IDE
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 2. Navigate to the project with the command "cd myFlix-Angular-client"
 
-## Running end-to-end tests
+### 3. Run the command "npm install" to install the required dependencies
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 4. Run the command "ng serve" to run the development server
 
-## Further help
+### 5. Navigate to http://localhost:4200/
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Acknowledgments:
+
+-CareerFoundry for guidance in building this app.
