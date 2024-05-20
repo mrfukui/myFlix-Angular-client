@@ -8,6 +8,11 @@ This is a movie app built with Angular and using an existing API and documentati
 
 Check out the live website [here!](https://mrfukui.github.io/myFlix-Angular-client/)
 
+## Screenshots of Application:
+
+![Screenshot](<img/Screenshot%20(239).png>)
+![Screenshot2](<img/Screenshot%20(240).png>)
+
 ## Features
 
 - Displays a welcome view where users can either log in or register as a new user
